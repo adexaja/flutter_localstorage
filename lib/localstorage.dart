@@ -67,6 +67,13 @@ class LocalStorage {
 
     return _flush();
   }
+  
+  /// Clear item from
+  clearItem() async {
+    _data.clear();
+
+    return _flush();
+  }
 
   _flush() async {
     final serialized = json.encode(_data);
@@ -77,4 +84,14 @@ class LocalStorage {
   getItem(String key) {
     return _data[key];
   }
+  
+  // has Item
+  hasItem(String key){
+    if(_data.containsKey(key))
+       return true;
+    else 
+      return false;
+  }
+  
+  
 }
